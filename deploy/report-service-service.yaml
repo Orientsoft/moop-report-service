@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
   - name: report-service-http
-    nodePort: 31780
+    nodePort: 31787
     port: 80
     protocol: TCP
     targetPort: 80
