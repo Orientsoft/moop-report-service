@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: report-service-config
+
+data:
+    config.yaml: |-
+      HOST: '0.0.0.0'
+      PORT: 80
+      DEBUG: false

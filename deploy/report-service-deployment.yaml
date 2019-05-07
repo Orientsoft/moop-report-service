@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: report-service
+  # namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moop
+      service: report-service
+  template:
+    metadata:
+      labels:
+        app: moop
+        service: report-service
+    spec:
+      serviceAccountName: moop
+
+      containers:
+      - name: moop-report-service
+        image: registry.datadynamic.io/moop/moop-report-service:{IMAGE_TAG_for_change}
+        volumeMounts:
+        - name:  report-service-config
+          mountPath: /app/config.yaml
+          subPath: config.yaml
+
+        resources: {}
+          # requests:
+          #   memory: 32Mi
+          #   cpu: 40m
+          # limits:
+          #   memory: 2Gi
+          #   cpu: 1
+
+
+      imagePullSecrets:
+      - name: regcred
+
+      volumes:
+      - name:  report-service-config
+        configMap:
+          name: report-service-config
