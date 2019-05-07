@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 from flask import Blueprint, request, render_template, make_response
 import pdfkit
+import logging
 
 api = Blueprint('api', __name__)
 
@@ -33,6 +34,7 @@ def report_index():
         if data['operation'] == 'download':
             pdf = pdfkit.from_string(html+student, None, options=options)
             return pdf
-    except:
+    except Exception as e:
+        logging.error(e)
         return '数据错误',400
 
