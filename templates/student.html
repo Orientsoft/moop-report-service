@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>报告</title>
+<meta name="description" content="eureka">
+<meta name="keywords" content="eureka">
+<meta name="viewport" content="width=device-width, initial-scale=0.9">
+<style type="text/css">
+.center{  white-space:normal; width: 1000px; margin: 0 auto;}
+table, tr, td, th, tbody, thead, tfoot {
+page-break-inside: avoid !important;
+}
+.table {
+    border: 1px solid #ebebeb;
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: transparent;
+    border: 0;
+   margin-bottom: 0;
+}
+
+.table td,.table th{    padding: 8px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+  border: 1px solid #ebebeb;
+  word-break:break-all;  text-align:center;
+    color:#333;
+    width:200px;
+    vertical-align:middle;}
+.table  th {
+    width:110px;
+    background-color:#f9f9f9;
+    color:#999;
+    font-weight:normal;
+}
+.tc{ text-align: center;}
+</style>
+</head>
+
+<body >
+{%- for student in data['student'] %}
+<div class="center" style="page-break-before: always;">
+    <h1 class="tc">{{student['realname']}} —{{data['title']}}</h1>
+    <br>
+       <table class="table">
+          <tbody>
+            <tr>
+              <th>学号</th>
+              <td>{{student['certification']}}</td>
+              <th>姓名</th>
+              <td>{{student['realname']}}</td>
+              <th>成绩</th>
+              <td>{{student['score']}}</td>
+            </tr>
+              <tr>
+                <th>教师评价</th>
+                <td colspan="5" style="height:60px;text-align: left;">{{student['feedback']}}</td>
+              </tr>
+            </tbody>
+          </table>
+      <br />
+       总体情况图<br /><br />
+       <img src="{{student['img1']}}" width="980"/><br /><br />
+       分项目情况图<br /><br />
+       <img src="{{student['img2']}}" width="980"/>
+</div>
+{%- endfor %}
+    </body>
+</html>

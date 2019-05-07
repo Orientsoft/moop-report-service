@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>报告</title>
+    <meta name="description" content="eureka">
+    <meta name="keywords" content="eureka">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <style type="text/css">
+        .center {
+            white-space: normal;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        table, tr, td, th, tbody, thead, tfoot {
+            page-break-inside: avoid !important;
+        }
+
+        .table {
+            border: 1px solid #ebebeb;
+            width: 100%;
+            max-width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            background-color: transparent;
+            border: 0;
+            margin-bottom: 0;
+        }
+
+        .table td, .table th {
+            padding: 8px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            vertical-align: middle;
+            border: 1px solid #ebebeb;
+            word-break: break-all;
+            text-align: center;
+            color: #333;
+            width: 200px;
+            vertical-align: middle;
+        }
+
+        .table th {
+            width: 110px;
+            background-color: #f9f9f9;
+            color: #999;
+            font-weight: normal;
+        }
+
+        .tc {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="center" style="page-break-before: always;">
+    <h1 class="tc">{{data['title']}}专题报告书</h1>
+    <br>
+    <h3>专题基本信息</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>教师姓名</th>
+            <td>{{data['teacher_name']}}</td>
+            <th>教师职称</th>
+            <td>{{data['teacher_prof']}}</td>
+            <th>专题名字</th>
+            <td>{{data['title']}}</td>
+        </tr>
+        <tr>
+            <th>参加学生总数</th>
+            <td>{{data['total']}}名</td>
+            <th>专题内项目总数</th>
+            <td>{{data['project_count']}}个</td>
+            <th>专题预计学时</th>
+            <td>{{data['study_time']}}</td>
+        </tr>
+        <tr>
+            <th>专题简介</th>
+            <td colspan="5" style="height:60px;text-align: left;">{{data['desc']}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <h3>学生列表</h3>
+    <table class="table">
+        <tbody>
+
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>学时</th>
+            <th>学习次数</th>
+            <th>成绩</th>
+        </tr>
+        {%- for student in data['student'] %}
+        <tr>
+            <td>{{student['certification']}}</td>
+            <td>{{student['realname']}}</td>
+            <td>{{student['times']}}</td>
+            <td>{{student['count']}}</td>
+            <td>{{student['score']}}</td>
+        </tr>
+        {%- endfor %}
+
+        </tbody>
+    </table>
+    <br/>
+    <h3>统计图表</h3>
+    学习成果图<br/><br/>
+    <img src="{{data['img1']}}" width="980"/>
+    <br/><br/><br/>
+    学习效率图<br/><br/>
+    <img src="{{data['img2']}}" width="980"/>
+
+</div>
+</body>
+</html>
