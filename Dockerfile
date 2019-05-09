@@ -10,8 +10,10 @@ RUN pip install --install-option="--prefix=/install" -r /requirements.txt -i htt
 
 FROM base
 
-RUN apk add --no-cache wqy-zenhei --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
+#RUN apk add --no-cache wqy-zenhei --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
 RUN apk add --no-cache wkhtmltopdf
+
+COPY static/fonts /usr/share/fonts
 
 COPY --from=builder /install /usr/local
 WORKDIR /app
