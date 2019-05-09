@@ -9,8 +9,8 @@ COPY requirements.txt /requirements.txt
 RUN pip install --install-option="--prefix=/install" -r /requirements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 
 FROM base
-RUN echo @edge http://dl-cdn.alpinelinux.org/alpine/main/testing /etc/apk/repositories
-RUN apk add --no-cache wkhtmltopdf wqy-zenhei
+RUN apk add --no-cache wqy-zenhei --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
+RUN apk add --no-cache wkhtmltopdf
 
 COPY --from=builder /install /usr/local
 WORKDIR /app
