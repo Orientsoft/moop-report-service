@@ -60,7 +60,7 @@ page-break-inside: avoid !important;
             </tr>
               <tr>
                 <th>教师评价</th>
-                <td colspan="5" style="height:60px;text-align: left;">{{student['feedback']}}</td>
+                <td colspan="5" style="height:60px;text-align: left;">{{student['feedback']|safe}}</td>
               </tr>
             </tbody>
           </table>
