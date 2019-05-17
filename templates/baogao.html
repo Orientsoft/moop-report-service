@@ -14,6 +14,7 @@
             width: 1000px;
             margin: 0 auto;
         }
+        .imgcenter{text-align: center;}
 
         table, tr, td, th, tbody, thead, tfoot {
             page-break-inside: avoid !important;
@@ -118,12 +119,15 @@
     </table>
     <br/>
     <h3>统计图表</h3>
-    总体情况图<br/><br/>
-    <img src="{{data['img1']}}" height="350"/>
-    <br/><br/><br/>
-    分项目情况图<br/><br/>
-    <img src="{{data['img2']}}" height="350"/>
 
+    <div class="imgcenter">
+        总体情况图<br/>
+        <img src="{{data['img1']}}" height="350"/>
+        <br/><br/>
+        分项目情况图<br/>
+        <img src="{{data['img2']}}" height="350"/>
+        <br/>
+    </div>
 </div>
 </body>
 </html>

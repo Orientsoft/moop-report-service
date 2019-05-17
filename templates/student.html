@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.9">
 <style type="text/css">
 .center{  white-space:normal; width: 1000px; margin: 0 auto;}
+.imgcenter{text-align: center;}
 table, tr, td, th, tbody, thead, tfoot {
 page-break-inside: avoid !important;
 }
@@ -65,8 +66,11 @@ page-break-inside: avoid !important;
             </tbody>
           </table>
       <br />
-       学习效率图<br /><br />
-       <img src="{{student['img']}}" height="350"/>
+
+    <div class="imgcenter">
+        学习效率图<br />
+        <img src="{{student['img']}}"  height="350"/>
+    </div>
 </div>
 {%- endfor %}
     </body>
