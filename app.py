@@ -18,4 +18,4 @@ for key, value in config.items():
 
 from applications.api import api
 
-app.register_blueprint(api, url_prefix='/api/v1')
+app.register_blueprint(api)
